@@ -24,7 +24,7 @@
         </el-form-item>
 
         <div class="btn">
-          <input type="button" class="sign-in-button" value="登录" @click="submitLogin()">
+          <input type="button" class="sign-in-button" value="登录" @click="submitLogin">
         </div>
       </el-form>
       <!-- 更多登录方式 -->
@@ -76,11 +76,14 @@ export default {
           loginApi.getLoginUserInfo()
             .then(response => {
               this.loginInfo = response.data.data.userInfo
+              console.log("loginInfo   >>>   " + this.loginInfo)
               //获取返回用户信息，放到cookie里面
               cookie.set('guli_ucenter',this.loginInfo,{domain: 'localhost'})
+              console.log("cookie.get('guli_ucenter')   >>>   " + cookie.get('guli_ucenter'))
 
               //跳转页面
-              window.location.href = "/";
+              // window.location.href = "/";
+              this.$router.push("/")
             })
         })
     },
