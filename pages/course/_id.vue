@@ -113,7 +113,7 @@
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{video.title}}
                                 </a>
                               </li>
-                              
+
                             </ol>
 
                           </li>
@@ -163,14 +163,14 @@
 <script>
 import courseApi from '@/api/course'
 export default {
-   asyncData({ params, error }) {
-     return courseApi.getCourseInfo(params.id)
-        .then(response => {
-          return {
-            courseWebVo: response.data.data.courseWebVo,
-            chapterVideoList: response.data.data.chapterVideoList
-          }
-        })
-   }
+  asyncData({ params, error }) {
+    return courseApi.getCourseInfo(params.id)
+      .then(response => {
+        return {
+          courseWebVo: response.data.data.courseWebVo,
+          chapterVideoList: response.data.data.chapterVideoList
+        }
+      })
+  }
 };
 </script>
